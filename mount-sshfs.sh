@@ -17,23 +17,15 @@ read uname
 echo -n "Enter Password of server and press [ENTER]: "
 read -s password
 
-
-echo "username=$uname" > $HOME/.sshfsCredentials
-echo "password=$password" >> $HOME/.sshfsCredentials
-
-chmod 600 $HOME/.sshfsCredentials
-
 sudo apt-get install sshfs
 sudo mkdir /mnt/fileshare
 echo $password | sudo sshfs -o password_stdin,allow_other $uname@$ip:/ /mnt/fileshare
-
-#echo "sshfs#$name@$ip:/ /mnt/fileshare" >> /etc/fstab
-
 
 
 sudo sed -i -e "\$i \echo $password | sudo sshfs -o password_stdin,allow_other $uname@$ip:/ /mnt/fileshare &\n" /etc/rc.local
 
 echo "Shared Folder is in/mnt/fileshare"
+echo "Edited rc.local to mount at boot"
 
 
 
