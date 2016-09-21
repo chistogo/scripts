@@ -19,7 +19,7 @@ read -s password
 
 
 sudo mkdir /mnt/fileshare
-echo $password | sudo sshfs -o password_stdin,allow_other $uname@$ip:/ /mnt/fileshare
+sudo sshfs -o allow_other $uname@$ip:/ /mnt/fileshare
 
 
 sudo sed -i -e "\$i \echo $password | sudo sshfs -o password_stdin,allow_other $uname@$ip:/ /mnt/fileshare &\n" /etc/rc.local
