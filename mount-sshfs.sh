@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 clear
-
+sudo apt-get install sshfs
 echo "Setting UP SSHSF"
 echo -n "Enter the IP of server and press [ENTER]: "
 read ip
@@ -17,7 +17,7 @@ read uname
 echo -n "Enter Password of server and press [ENTER]: "
 read -s password
 
-sudo apt-get install sshfs
+
 sudo mkdir /mnt/fileshare
 echo $password | sudo sshfs -o password_stdin,allow_other $uname@$ip:/ /mnt/fileshare
 
