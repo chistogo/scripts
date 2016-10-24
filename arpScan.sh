@@ -11,7 +11,8 @@ if [ "$EUID" -ne 0 ]
 fi
 
 sudo apt-get install arp-scan -y
-
+clear
+ifconfig
 echo "Please enter a Network Interface: "
 read interface
 sudo arp-scan --interface=$interface --localnet
