@@ -10,6 +10,7 @@
 import os
 import subprocess
 
+# if you notice any delay, its from this line of code
 height = int(subprocess.check_output("powershell.exe -NoProfile (get-host).UI.RawUI.WindowSize.Height", stderr=subprocess.STDOUT, shell=True)[:-2])
 #width = int(subprocess.check_output("powershell.exe -NoProfile (get-host).UI.RawUI.WindowSize.Width", stderr=subprocess.STDOUT, shell=True)[:-2])
 
