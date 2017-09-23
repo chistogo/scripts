@@ -52,7 +52,7 @@ iface wlan1 inet manual
 " > /etc/network/interfaces
 
 
-sudo dhcpd -q -d
+sudo dhcpcd -q -d
 sudo ip link set wlan0 down
 sudo ip link set wlan0 up
 
